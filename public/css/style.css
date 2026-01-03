@@ -1,0 +1,519 @@
+/* --- CSS STYLES START HERE --- */
+
+/* --- Global Variables & Resets --- */
+:root {
+    /* Your specified primary gradient theme */
+    --color-gradient: linear-gradient(135deg, #abe7b1ff, #90de8bff);
+    /* Deep green for Nav/Footer background */
+    --color-deep-green: #006400; 
+    /* Primary text color */
+    --color-text-dark: #333333;
+    /* White text for dark backgrounds */
+    --color-text-light: #ffffff;
+    
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --slider-duration: 15s; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    overflow-x: hidden; 
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 0.5em;
+    /* Using a mid-tone green for inner headings */
+    color: #2E8B57; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Primary buttons within the CTA use the deep green now */
+.btn-primary {
+    background-color: var(--color-deep-green);
+    color: var(--color-text-light);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-text-light);
+    color: var(--color-text-light);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- 1. Header (Navbar) --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    /* --- DEEP GREEN NAVBAR COLOR APPLIED --- */
+    background: linear-gradient(135deg, rgb(37, 135, 47), rgb(21, 86, 16));
+    /* -------------------------------------- */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 1000;
+    color: #ffffff !important; 
+}
+
+.nav-links a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 700;
+    transition: opacity 0.2s;
+    background-color: #90de8bff;
+    margin: 0 8px;
+      border-radius: 6px;
+      padding: 10px 12px;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+     
+}
+
+.btn-portal {
+    background-image: var(--color-gradient);
+    color: var(--color-text-dark);
+    font-weight: 700;
+}
+
+/* --- 2. Hero Section: The Gateway (Diagonal Split with Slider) --- */
+.hero-section {
+    height: 75vh; 
+    display: flex;
+    position: relative;
+}
+
+.hero-image-side {
+    width: 66.66%;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%); 
+    z-index: 2;
+    overflow: hidden; 
+}
+        
+.slider-wrapper {
+    position: absolute;
+    width: 300%; 
+    height: 100%;
+    display: flex;
+    animation: slide-transition var(--slider-duration) infinite ease-in-out;
+}
+
+.slide {
+    flex-shrink: 0; 
+    width: calc(100% / 3); 
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Specific Slide Images (Placeholder) */
+.slide-1 { background-image: url('../img/ban1.jpg'); }
+.slide-2 { background-image: url('../img/ban2.jpg'); }
+.slide-3 { background-image: url('../img/ban3.jpg'); }
+        
+@keyframes slide-transition {
+    /* Slide 1 */
+    0% { transform: translateX(0); }
+    28% { transform: translateX(0); }
+    /* Slide 2 */
+    33% { transform: translateX(-33.33%); } 
+    61% { transform: translateX(-33.33%); }
+    /* Slide 3 */
+    66% { transform: translateX(-66.66%); } 
+    94% { transform: translateX(-66.66%); }
+    /* Reset */
+    100% { transform: translateX(0); }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35); 
+    z-index: 3; 
+}
+        
+.hero-cta-side {
+    width: 33.34%;
+    background: var(--color-gradient);
+    color: var(--color-text-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 40px;
+    position: relative;
+    z-index: 4; 
+}
+
+.institute-name {
+     color: #1a441b;
+    font-size: 2.5em;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 1.2em;
+     color: #1a441b;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.hero-actions .btn {
+    margin-right: 15px;
+    margin-top: 10px;
+}
+
+/* --- 3. Welcome Section --- */
+.welcome-section {
+    display: flex;
+    padding: 80px 20px;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.welcome-content {
+    flex: 3; 
+}
+
+.director-message {
+    flex: 2; 
+    background-color: #f7f7f7;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.director-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--color-deep-green);
+}
+
+blockquote {
+    font-style: italic;
+    color: #555;
+    margin: 15px 0;
+    padding: 0 10px;
+}
+
+.read-more {
+    color: var(--color-deep-green);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- 4. Stats Section --- */
+.stats-section {
+    background: var(--color-gradient);
+    padding: 60px 0;
+    text-align: center;
+    
+
+}
+
+.stats-section h2 {
+    color: #1a441b;
+    margin-bottom: 40px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.stat-card {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 30px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.stat-number {
+    display: block;
+    font-size: 3em;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-deep-green);
+}
+
+.stat-label {
+    display: block;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-text-dark);
+    margin-top: 5px;
+}
+
+/* --- 5. Footer --- */
+.main-footer {
+    /* --- DEEP GREEN FOOTER COLOR APPLIED --- */
+    background-color: var(--color-deep-green);
+    /* -------------------------------------- */
+    color: var(--color-text-light);
+    padding: 25px 0;
+    text-align: center;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .main-header {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+    .nav-links {
+        margin-top: 10px;
+        order: 3;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-links a {
+        margin: 0 10px;
+        display: inline-block;
+    }
+    .btn-portal {
+        margin-left: auto;
+    }
+
+    .hero-section {
+        height: auto;
+        flex-direction: column;
+    }
+
+    /* === মোবাইল স্লাইডার ফিক্স (সংশোধিত অংশ) === */
+    .hero-image-side {
+        width: 100%;
+        height: 300px; /* মোবাইলে দেখার সুবিধার জন্য উচ্চতা সামান্য বাড়ানো হয়েছে */
+        clip-path: none; /* ডায়াগনাল কাট বাদ দেওয়া হয়েছে */
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* এখানে slider-wrapper এবং slide এর জন্য যে কোডগুলো অ্যানিমেশন বন্ধ করছিল
+       সেগুলো মুছে ফেলা হয়েছে, যাতে সেগুলো ডেস্কটপ স্টাইল থেকে অ্যানিমেশন ইনহেরিট করে। */
+
+    .hero-cta-side {
+        width: 100%;
+        padding: 40px 20px;
+        /* মোবাইলে CTA সেকশনের টেক্সট মাঝে আনা হয়েছে */
+        align-items: center;
+        text-align: center;
+    }
+    /* ========================================== */
+
+    .welcome-section {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+    }
+    .welcome-content, .director-message {
+        max-width: 100%;
+        flex: auto;
+    }
+    .stats-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+
+/* ================= Section Title ================= */
+.section-title {
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    color: #1a441b;
+}
+
+/* ================= Facilities Section ================= */
+.facilities-section {
+    padding: 80px 20px;
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.facility-card {
+    background: #dcf1db;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.facility-card:hover {
+    transform: translateY(-8px);
+}
+
+.facility-card img {
+    width: 70px;
+    margin-bottom: 15px;
+}
+
+.facility-card h3 {
+    margin-bottom: 10px;
+    color: #2e8b57;
+}
+
+/* ================= Campus Gallery ================= */
+.campus-section {
+    background: linear-gradient(135deg, #abe7b1ff, #90de8bff);
+    padding: 80px 0;
+    max-width: 100%;
+
+}
+
+.campus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.campus-grid img {
+    width: 100%;
+    height: 200px;   /* আগে ছিল 220px */
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+
+
+/* ================= Notice Section ================= */
+.notice-section {
+    padding: 40px 10px;
+}
+
+.notice-list {
+    list-style: none;
+    max-width: 800px;
+    margin: auto;
+}
+
+.notice-list li {
+    background: #dcf1db;
+    margin-bottom: 15px;
+    padding: 18px 20px;
+    border-left: 6px solid #006400;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+}
+
+.notice-list .date {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.notice-list a {
+    text-decoration: none;
+    color: #1a441b;
+    font-weight: 600;
+}
+
+.notice-list a:hover {
+    text-decoration: underline;
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 768px) {
+    /* Navbar fixed kora holo */
+    .main-header {
+        display: flex; /* age display: none chilo, oita kete dao */
+        padding: 15px 20px;
+    }
+
+    /* Menu links gulo ke vertical kora holo */
+    .nav-links {
+        position: absolute;
+        top: 60px; /* Header er niche thakbe */
+        left: -100%; /* Shuru te screen er baire thakbe */
+        flex-direction: column;
+        background: #155610;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s ease-in-out;
+        padding: 20px 0;
+    }
+
+    /* Menu active hole screen-e ashbe */
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links a {
+        display: block;
+        margin: 10px 20px;
+    }
+
+    /* Hamburger Menu Button Style */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: white;
+        transition: 0.3s;
+    }
+}
+
