@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 
 class studentInfoController extends Controller
 {
-     public function create(){
-        return view("admin.student_info");
-    }
+    public function create(){
+    $students = studentInfo::all();
+    return view('admin.student_info', compact('students'));
+}
+
 
      public function store(Request $request)
 {
@@ -18,12 +20,12 @@ class studentInfoController extends Controller
         'student_roll'=>'required|min:0',
         'department'=>'required',
         'semester'=>'required',
-        'shift'=>'required',   
+        'shift'=>'required',
         'cgpa'=>'required',
-        'phone'=>'required|string',   
+        'phone'=>'required|string',
         'email'=>'required',
-        'address'=>'required',   
-        'image'=>'nullable|image|mimes:jpg,jpeg,png|max:2048' 
+        'address'=>'required',
+        'image'=>'nullable|image|mimes:jpg,jpeg,png|max:2048'
     ]);
 
     $imagePath = null;
@@ -48,7 +50,7 @@ class studentInfoController extends Controller
     return redirect()->back()->with('success','Save Successfully');
 }
 
-    
 
-    
+
+
 }

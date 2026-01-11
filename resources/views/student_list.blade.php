@@ -9,7 +9,7 @@
     }
 
     body { background-color: #f3f8f3;
-    
+
     }
 
     /* --- Page Header --- */
@@ -166,7 +166,7 @@
             <div class="col-md-6">
                 <h1 class="fw-bold text-dark mb-2">Student Directory</h1>
                 <p class="text-dark opacity-75 mb-4">Manage and monitor all EduGreen Polytechnic students in one place.</p>
-                
+
                 <div class="d-flex flex-wrap gap-3">
                     <div class="stat-pill">
                         <i class="bi bi-people-fill"></i>
@@ -215,266 +215,52 @@
             </div>
         </div>
 
-        <div class="table-responsive">
-            <table class="table table-student align-middle">
-                <thead>
-                    <tr>
-                        <th>Basic Information</th>
-                        <th>Roll No</th>
-                        <th>Department</th>
-                        <th>Academic Info</th>
-                        <th>Attendance</th>
-                        <th class="text-center">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="student-info-box">
-                                <img src="https://i.pravatar.cc/150?img=11" class="student-img" alt="Student">
-                                <div>
-                                    <h6 class="mb-0 fw-bold">Sojib Khan</h6>
-                                    <small class="text-muted">sojib@fpi.gov.bd</small>
-                                </div>
-                            </div>
-                        </td>
-                        <td><span class="fw-bold">#652021</span></td>
-                        <td><span class="tag tag-success">Computer</span></td>
-                        <td>
-                            <div class="small fw-bold text-dark">5th Semester</div>
-                            <div class="text-muted small">Shift: 1st</div>
-                        </td>
-                        <td>
-                            <div class="progress" style="height: 6px; width: 100px;">
-                                <div class="progress-bar bg-success" style="width: 85%"></div>
-                            </div>
-                            <small class="text-muted">85%</small>
-                        </td>
-                        <td>
-                            <div class="action-group">
-                                <button class="btn-circle btn-view"><i class="bi bi-eye"></i></button>
-                                <button class="btn-circle btn-edit"><i class="bi bi-pencil"></i></button>
-                                <button class="btn-circle btn-delete"><i class="bi bi-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
+                     <div class="table-responsive">
+                     <table class="table table-student align-middle">
+                         <thead>
+                             <tr>
+                                 <th>Basic Information</th>
+                                 <th>Roll No</th>
+                                 <th>Department</th>
+                                 <th>Academic Info</th>
+                                 <th>Address</th>
+                                 <th class="text-center">Action</th>
+                             </tr>
+                         </thead>
+                         <tbody>
 
-                    <tr>
-                        <td>
-                            <div class="student-info-box">
-                                <img src="https://i.pravatar.cc/150?img=5" class="student-img" alt="Student">
-                                <div>
-                                    <h6 class="mb-0 fw-bold">Anika Kabir</h6>
-                                    <small class="text-muted">anika@fpi.gov.bd</small>
-                                </div>
-                            </div>
-                        </td>
-                        <td><span class="fw-bold">#652044</span></td>
-                        <td><span class="tag tag-warning" style="background: #fff0f0; color: #ff5252;">Civil</span></td>
-                        <td>
-                            <div class="small fw-bold text-dark">7th Semester</div>
-                            <div class="text-muted small">Shift: 2nd</div>
-                        </td>
-                        <td>
-                            <div class="progress" style="height: 6px; width: 100px;">
-                                <div class="progress-bar bg-warning" style="width: 65%"></div>
-                            </div>
-                            <small class="text-muted">65%</small>
-                        </td>
-                        <td>
-                            <div class="action-group">
-                                <button class="btn-circle btn-view"><i class="bi bi-eye"></i></button>
-                                <button class="btn-circle btn-edit"><i class="bi bi-pencil"></i></button>
-                                <button class="btn-circle btn-delete"><i class="bi bi-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="student-info-box">
-                                <img src="https://i.pravatar.cc/150?img=11" class="student-img" alt="Student">
-                                <div>
-                                    <h6 class="mb-0 fw-bold">Sojib Khan</h6>
-                                    <small class="text-muted">sojib@fpi.gov.bd</small>
-                                </div>
-                            </div>
-                        </td>
-                        <td><span class="fw-bold">#652021</span></td>
-                        <td><span class="tag tag-success">Computer</span></td>
-                        <td>
-                            <div class="small fw-bold text-dark">5th Semester</div>
-                            <div class="text-muted small">Shift: 1st</div>
-                        </td>
-                        <td>
-                            <div class="progress" style="height: 6px; width: 100px;">
-                                <div class="progress-bar bg-success" style="width: 85%"></div>
-                            </div>
-                            <small class="text-muted">85%</small>
-                        </td>
-                        <td>
-                            <div class="action-group">
-                                <button class="btn-circle btn-view"><i class="bi bi-eye"></i></button>
-                                <button class="btn-circle btn-edit"><i class="bi bi-pencil"></i></button>
-                                <button class="btn-circle btn-delete"><i class="bi bi-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
+                             @foreach ($students as $student)
+                                 <tr>
+                                     <td>
+                                         <div class="student-info-box">
+                                             <img src="{{ $student->image ? asset('storage/' . $student->image) : 'https://i.pravatar.cc/150?img=11' }}"
+                                                 class="student-img" alt="Student">
 
-                    <tr>
-                        <td>
-                            <div class="student-info-box">
-                                <img src="https://i.pravatar.cc/150?img=5" class="student-img" alt="Student">
-                                <div>
-                                    <h6 class="mb-0 fw-bold">Anika Kabir</h6>
-                                    <small class="text-muted">anika@fpi.gov.bd</small>
-                                </div>
-                            </div>
-                        </td>
-                        <td><span class="fw-bold">#652044</span></td>
-                        <td><span class="tag tag-warning" style="background: #fff0f0; color: #ff5252;">Civil</span></td>
-                        <td>
-                            <div class="small fw-bold text-dark">7th Semester</div>
-                            <div class="text-muted small">Shift: 2nd</div>
-                        </td>
-                        <td>
-                            <div class="progress" style="height: 6px; width: 100px;">
-                                <div class="progress-bar bg-warning" style="width: 65%"></div>
-                            </div>
-                            <small class="text-muted">65%</small>
-                        </td>
-                        <td>
-                            <div class="action-group">
-                                <button class="btn-circle btn-view"><i class="bi bi-eye"></i></button>
-                                <button class="btn-circle btn-edit"><i class="bi bi-pencil"></i></button>
-                                <button class="btn-circle btn-delete"><i class="bi bi-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="student-info-box">
-                                <img src="https://i.pravatar.cc/150?img=11" class="student-img" alt="Student">
-                                <div>
-                                    <h6 class="mb-0 fw-bold">Sojib Khan</h6>
-                                    <small class="text-muted">sojib@fpi.gov.bd</small>
-                                </div>
-                            </div>
-                        </td>
-                        <td><span class="fw-bold">#652021</span></td>
-                        <td><span class="tag tag-success">Computer</span></td>
-                        <td>
-                            <div class="small fw-bold text-dark">5th Semester</div>
-                            <div class="text-muted small">Shift: 1st</div>
-                        </td>
-                        <td>
-                            <div class="progress" style="height: 6px; width: 100px;">
-                                <div class="progress-bar bg-success" style="width: 85%"></div>
-                            </div>
-                            <small class="text-muted">85%</small>
-                        </td>
-                        <td>
-                            <div class="action-group">
-                                <button class="btn-circle btn-view"><i class="bi bi-eye"></i></button>
-                                <button class="btn-circle btn-edit"><i class="bi bi-pencil"></i></button>
-                                <button class="btn-circle btn-delete"><i class="bi bi-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <div class="student-info-box">
-                                <img src="https://i.pravatar.cc/150?img=5" class="student-img" alt="Student">
-                                <div>
-                                    <h6 class="mb-0 fw-bold">Anika Kabir</h6>
-                                    <small class="text-muted">anika@fpi.gov.bd</small>
-                                </div>
-                            </div>
-                        </td>
-                        <td><span class="fw-bold">#652044</span></td>
-                        <td><span class="tag tag-warning" style="background: #fff0f0; color: #ff5252;">Civil</span></td>
-                        <td>
-                            <div class="small fw-bold text-dark">7th Semester</div>
-                            <div class="text-muted small">Shift: 2nd</div>
-                        </td>
-                        <td>
-                            <div class="progress" style="height: 6px; width: 100px;">
-                                <div class="progress-bar bg-warning" style="width: 65%"></div>
-                            </div>
-                            <small class="text-muted">65%</small>
-                        </td>
-                        <td>
-                            <div class="action-group">
-                                <button class="btn-circle btn-view"><i class="bi bi-eye"></i></button>
-                                <button class="btn-circle btn-edit"><i class="bi bi-pencil"></i></button>
-                                <button class="btn-circle btn-delete"><i class="bi bi-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="student-info-box">
-                                <img src="https://i.pravatar.cc/150?img=11" class="student-img" alt="Student">
-                                <div>
-                                    <h6 class="mb-0 fw-bold">Sojib Khan</h6>
-                                    <small class="text-muted">sojib@fpi.gov.bd</small>
-                                </div>
-                            </div>
-                        </td>
-                        <td><span class="fw-bold">#652021</span></td>
-                        <td><span class="tag tag-success">Computer</span></td>
-                        <td>
-                            <div class="small fw-bold text-dark">5th Semester</div>
-                            <div class="text-muted small">Shift: 1st</div>
-                        </td>
-                        <td>
-                            <div class="progress" style="height: 6px; width: 100px;">
-                                <div class="progress-bar bg-success" style="width: 85%"></div>
-                            </div>
-                            <small class="text-muted">85%</small>
-                        </td>
-                        <td>
-                            <div class="action-group">
-                                <button class="btn-circle btn-view"><i class="bi bi-eye"></i></button>
-                                <button class="btn-circle btn-edit"><i class="bi bi-pencil"></i></button>
-                                <button class="btn-circle btn-delete"><i class="bi bi-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <div class="student-info-box">
-                                <img src="https://i.pravatar.cc/150?img=5" class="student-img" alt="Student">
-                                <div>
-                                    <h6 class="mb-0 fw-bold">Anika Kabir</h6>
-                                    <small class="text-muted">anika@fpi.gov.bd</small>
-                                </div>
-                            </div>
-                        </td>
-                        <td><span class="fw-bold">#652044</span></td>
-                        <td><span class="tag tag-warning" style="background: #fff0f0; color: #ff5252;">Civil</span></td>
-                        <td>
-                            <div class="small fw-bold text-dark">7th Semester</div>
-                            <div class="text-muted small">Shift: 2nd</div>
-                        </td>
-                        <td>
-                            <div class="progress" style="height: 6px; width: 100px;">
-                                <div class="progress-bar bg-warning" style="width: 65%"></div>
-                            </div>
-                            <small class="text-muted">65%</small>
-                        </td>
-                        <td>
-                            <div class="action-group">
-                                <button class="btn-circle btn-view"><i class="bi bi-eye"></i></button>
-                                <button class="btn-circle btn-edit"><i class="bi bi-pencil"></i></button>
-                                <button class="btn-circle btn-delete"><i class="bi bi-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                                             <div>
+                                                 <h6 class="mb-0 fw-bold">{{ $student->student_name }}</h6>
+                                                 <small class="text-muted">{{ $student->email }}</small>
+                                             </div>
+                                         </div>
+                                     </td>
+                                     <td><span class="fw-bold">{{ $student->student_roll }}</span></td>
+                                     <td><span class="tag tag-success">{{ $student->department }}</span></td>
+                                     <td>
+                                         <div class="small fw-bold text-dark">{{ $student->semester }}</div>
+                                         <div class="text-muted small">{{ $student->shift }}</div>
+                                     </td>
+                                     <td><span class="fw-bold">{{ $student->address }}</span></td>
+                                     <td>
+                                         <div class="action-group">
+                                             <button class="btn-circle btn-view"><i class="bi bi-eye"></i></button>
+                                             <button class="btn-circle btn-edit"><i class="bi bi-pencil"></i></button>
+                                             <button class="btn-circle btn-delete"><i class="bi bi-trash"></i></button>
+                                         </div>
+                                     </td>
+                                 </tr>
+                             @endforeach
+                         </tbody>
+                     </table>
+                 </div>
 
         <div class="p-4 border-top d-flex justify-content-between align-items-center">
             <span class="small text-muted">Showing <b>10</b> out of <b>3,450</b> students</span>
