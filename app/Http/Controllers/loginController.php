@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\UserType;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
 
 class LoginController extends Controller
 {
@@ -28,14 +30,14 @@ class LoginController extends Controller
             'name'      => 'required|string|max:255',
             'email'     => 'required|email|unique:users',
             'password'  => 'required|min:6',
-            'user_type' => 'required|in:Admin,User',
+            // 'user_type' => 'required|in:Admin,User',
         ]);
 
         $user = User::create([
             'name'      => $request->name,
             'email'     => $request->email,
             'password'  => Hash::make($request->password),
-            'user_type' => $request->user_type,
+            'user_type' => UserType::USER->value,
         ]);
 
         Auth::login($user);

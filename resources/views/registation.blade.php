@@ -155,11 +155,11 @@
 
 <div class="reg-wrapper">
     <div class="glass-reg-card">
-        
+
         <div class="reg-side-banner d-none d-lg-flex">
             <div>
                 <h2 class="fw-bold mb-4">Registration <br> Management</h2>
-                
+
                 <div class="feature-item">
                     <h6 class="fw-bold mb-1"><i class="bi bi-shield-check me-2"></i> Role Control</h6>
                     <small>Assign specific roles to users for secure access.</small>
@@ -212,15 +212,20 @@
                     <input type="email" name="email" placeholder="example@fpi.gov.bd" required>
                 </div>
 
-                <div class="input-box">
+              {{-- <div class="input-box">
                     <label>USER TYPE</label>
                     <i class="bi bi-people"></i>
                     <select name="user_type" required>
                         <option value="" disabled selected>Select user role</option>
-                        <option>Admin</option>
-                        <option>User</option>
+
+                        @foreach(\App\UserType::cases() as $type)
+                            <option value="{{ $type->value }}">
+                                {{ $type->name }}
+                            </option>
+                        @endforeach
+
                     </select>
-                </div>
+                </div> --}}
 
                 <div class="input-box">
                     <label>PASSWORD</label>
