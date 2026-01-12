@@ -10,7 +10,7 @@
         <nav class="nav-links">
             <a href="/">Home</a>
             <a href="{{route('dept')}}">Departments</a>
-            <a href="{{route('teacher')}}">Teachers</a>
+            <a href="{{route('teacher.list')}}">Teachers</a>
             <a href="{{route('student')}}">Student_list</a>
             <a href="#">Results</a>
             <a href="#">Notice Board</a>
@@ -31,7 +31,7 @@
                 <div class="slide slide-3"></div>
             </div>
         </div>
-        
+
         <div class="hero-cta-side">
             <h1 class="institute-name"><b> EduGreen Polytechnic Institute </b></h1>
             <p class="tagline">Empowering Futures through Technical Excellence.</p>

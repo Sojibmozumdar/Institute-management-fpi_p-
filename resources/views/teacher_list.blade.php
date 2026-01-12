@@ -8,7 +8,7 @@
         --soft-bg: #f8fcf8;
     }
 
-    body { background-color: var(--soft-bg); }
+    body { background-color: rgb(233, 252, 232); }
 
     /* --- Header Design --- */
     .teacher-header {
@@ -17,7 +17,7 @@
         padding: 40px;
         color: var(--deep-green);
         margin-bottom: 40px;
-        box-shadow: 0 10px 30px rgba(144, 222, 139, 0.3);
+        box-shadow: 0 10px 30px rgba(48, 64, 47, 0.3);
         position: relative;
         overflow: hidden;
     }
@@ -170,86 +170,38 @@
         </div>
     </div>
 
-    <div class="row g-4">
+   <div class="row g-4">
+    @foreach ($teachers as $teacher)
         <div class="col-xl-3 col-lg-4 col-md-6">
             <div class="teacher-card">
-                <div class="dept-badge">Computer Tech</div>
+                <div class="dept-badge">{{ $teacher->technology }}</div>
+
                 <div class="profile-wrapper">
-                    <img src="https://i.pravatar.cc/150?img=12" class="teacher-img" alt="">
+                    <img src="{{ asset('teachers/'.$teacher->picture) }}" class="teacher-img" alt="">
                     <span class="status-indicator"></span>
                 </div>
-                <h5 class="fw-bold mb-1">Engr. Monir Hossain</h5>
-                <span class="designation">Chief Instructor & Head</span>
-                <div class="small text-muted mb-2"><i class="bi bi-envelope me-2"></i>monir@fpi.gov.bd</div>
-                
+
+                <h5 class="fw-bold mb-1">{{ $teacher->name }}</h5>
+                <span class="designation">{{ $teacher->job_title }}</span>
+
+                <div class="small text-muted mb-2">
+                    <i class="bi bi-envelope me-2"></i>{{ $teacher->email }}
+                </div>
+
                 <div class="teacher-social">
                     <a href="#" class="social-btn"><i class="bi bi-linkedin"></i></a>
                     <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
                     <a href="#" class="social-btn"><i class="bi bi-chat-dots"></i></a>
                 </div>
-                <button class="call-btn"><i class="bi bi-telephone me-2"></i>Contact Now</button>
-            </div>
-        </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="teacher-card">
-                <div class="dept-badge">Civil Tech</div>
-                <div class="profile-wrapper">
-                    <img src="https://i.pravatar.cc/150?img=68" class="teacher-img" alt="">
-                    <span class="status-indicator" style="background: #999;"></span>
-                </div>
-                <h5 class="fw-bold mb-1">Fatema Khatun</h5>
-                <span class="designation">Senior Instructor</span>
-                <div class="small text-muted mb-2"><i class="bi bi-envelope me-2"></i>fatema@fpi.gov.bd</div>
-                
-                <div class="teacher-social">
-                    <a href="#" class="social-btn"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="social-btn"><i class="bi bi-chat-dots"></i></a>
-                </div>
-                <button class="call-btn"><i class="bi bi-telephone me-2"></i>Contact Now</button>
+                <button class="call-btn">
+                    <i class="bi bi-telephone me-2"></i>{{ $teacher->phone }}
+                </button>
             </div>
         </div>
+    @endforeach
+</div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="teacher-card">
-                <div class="dept-badge">Electrical Tech</div>
-                <div class="profile-wrapper">
-                    <img src="https://i.pravatar.cc/150?img=11" class="teacher-img" alt="">
-                    <span class="status-indicator"></span>
-                </div>
-                <h5 class="fw-bold mb-1">Ariful Islam</h5>
-                <span class="designation">Junior Instructor</span>
-                <div class="small text-muted mb-2"><i class="bi bi-envelope me-2"></i>arif@fpi.gov.bd</div>
-                
-                <div class="teacher-social">
-                    <a href="#" class="social-btn"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social-btn"><i class="bi bi-chat-dots"></i></a>
-                </div>
-                <button class="call-btn"><i class="bi bi-telephone me-2"></i>Contact Now</button>
-            </div>
-        </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6">
-            <div class="teacher-card">
-                <div class="dept-badge">Mechanical Tech</div>
-                <div class="profile-wrapper">
-                    <img src="https://i.pravatar.cc/150?img=13" class="teacher-img" alt="">
-                    <span class="status-indicator"></span>
-                </div>
-                <h5 class="fw-bold mb-1">Engr. Kamrul Hasan</h5>
-                <span class="designation">Instructor</span>
-                <div class="small text-muted mb-2"><i class="bi bi-envelope me-2"></i>kamrul@fpi.gov.bd</div>
-                
-                <div class="teacher-social">
-                    <a href="#" class="social-btn"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="social-btn"><i class="bi bi-chat-dots"></i></a>
-                </div>
-                <button class="call-btn"><i class="bi bi-telephone me-2"></i>Contact Now</button>
-            </div>
-        </div>
-    </div>
 </div>
 @endsection

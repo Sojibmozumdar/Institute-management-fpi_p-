@@ -46,7 +46,7 @@ Route::post('\student_info\store',[studentInfoController::class,'store'])->name(
 
 Route::get('/depertments',[deptController::class,'index'])->name('dept');
 
-Route::get('/teachers',[teacherController::class,'index'])->name('teacher');
+Route::get('/teachersList',[teacherController::class,'index'])->name('teacher.list');
 
 
 Route::get('/teachersInfo',[TeacherInfoController::class,'index'])->name('index');
