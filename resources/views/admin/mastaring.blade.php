@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPI-Admin - Institute Management Dashboard</title>
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --primary-gradient: linear-gradient(135deg, #abe7b1ff, #90de8bff);
@@ -159,15 +159,15 @@
 
         /* --- Mobile Responsive Updates --- */
         @media (max-width: 768px) {
-            #sidebar { 
+            #sidebar {
                 margin-left: -260px; /* Hide sidebar initially */
             }
-            #sidebar.active { 
+            #sidebar.active {
                 margin-left: 0; /* Show sidebar when active */
             }
-            #content { 
-                margin-left: 0; 
-                width: 100%; 
+            #content {
+                margin-left: 0;
+                width: 100%;
                 padding: 15px;
             }
             .search-bar {
@@ -201,11 +201,11 @@
         <div class="sidebar-header">
             <h4 class="fw-bold"><i class="bi bi-mortarboard-fill"></i> EduGreen Polytechnic</h4>
         </div>
-        
+
         <div class="mt-4">
             <a href="#" class="nav-link active"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
             <a href="{{route('student_info.create')}}" class="nav-link"><i class="bi bi-people-fill"></i> Students</a>
-            <a href="#" class="nav-link"><i class="bi bi-person-badge-fill"></i> Teachers</a>
+            <a href="{{route('index')}}" class="nav-link"><i class="bi bi-person-badge-fill"></i> Teachers</a>
             <a href="#" class="nav-link"><i class="bi bi-calendar2-check-fill"></i> Attendance</a>
             <a href="#" class="nav-link"><i class="bi bi-wallet2"></i> Fees Collection</a>
             <a href="#" class="nav-link"><i class="bi bi-journal-text"></i> Exam Result</a>
@@ -226,7 +226,7 @@
     </nav>
 
     <div id="content">
-        
+
         <div class="top-nav">
             <button class="btn btn-light d-md-none me-2 border-0" id="sidebarToggle" style="background: #ffffff66;">
                 <i class="bi bi-list fs-3"></i>
@@ -236,7 +236,7 @@
                 <i class="bi bi-search text-muted"></i>
                 <input type="text" placeholder="Search...">
             </div>
-            
+
             <div class="d-flex align-items-center">
                 <div class="me-3 position-relative">
                     <i class="bi bi-bell fs-5"></i>
@@ -293,5 +293,10 @@
             }
         });
     </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@stack('scripts')
 </body>
 </html>
+
+

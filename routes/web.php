@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\studentController;
 use App\Http\Controllers\teacherController;
 use App\Http\Controllers\studentInfoController;
+use App\Http\Controllers\TeacherInfoController;
 use App\Http\Controllers\cusmoterInfoController;
 
 Route::get('/', function () {
@@ -46,6 +47,23 @@ Route::post('\student_info\store',[studentInfoController::class,'store'])->name(
 Route::get('/depertments',[deptController::class,'index'])->name('dept');
 
 Route::get('/teachers',[teacherController::class,'index'])->name('teacher');
+
+
+Route::get('/teachersInfo',[TeacherInfoController::class,'index'])->name('index');
+Route::get('/teachersCreate',[TeacherInfoController::class,'create'])->name('teacher.create');
+Route::post('/teachersStore',[TeacherInfoController::class,'store'])->name('teacher.store');
+
+Route::get('/teacher/{id}/edit',[TeacherInfoController::class,'edit'])->name('teacher.edit');
+
+
+Route::put('/teachersUpdate/{id}', [TeacherInfoController::class,'update'])->name('teacher.update');
+
+
+Route::delete('/teachersDestroy/{id}',[TeacherInfoController::class,'destroy'])->name('teacher.destroy');
+
+
+
+
 
 route::get('addNum',[addNumber::class,'index'])->name('findlerge');
 
