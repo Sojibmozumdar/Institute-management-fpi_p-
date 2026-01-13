@@ -14,10 +14,7 @@ class TeacherServiceProvider extends ServiceProvider
      */
     public function register(): void
 {
-    $this->app->bind(
-        TeacherRepositoryInterface::class,
-        TeacherRepository::class
-    );
+    $this->app->bind(TeacherRepositoryInterface::class,TeacherRepository::class,);
 }
 
     /**

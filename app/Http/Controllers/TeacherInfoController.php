@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\TeacherRepositoryInterface;
-use Illuminate\Http\Request;
+use App\Http\Requests\Teacher\StoreTeacherRequest;
+use App\Http\Requests\Teacher\UpdateTeacherRequest;
 
 class TeacherInfoController extends Controller
 {
@@ -25,32 +26,17 @@ class TeacherInfoController extends Controller
         return view('admin.teacher.create');
     }
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required|email|unique:teachers,email',
-            'technology'=>'required',
-            'phone'=>'required',
-            'job_title'=>'required',
-            'picture'=>'required|image'
-        ]);
+    public function store(StoreTeacherRequest $request)
+{
+    $result = $this->teacherRepo->store($request);
 
-        $imageName = time().'.'.$request->picture->extension();
-        $request->picture->move(public_path('teachers'), $imageName);
-
-        $this->teacherRepo->store([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'technology'=>$request->technology,
-            'phone'=>$request->phone,
-            'job_title'=>$request->job_title,
-            'picture'=>$imageName
-        ]);
-
-        return redirect()->route('index')
-                 ->with('success','Teacher Added Successfully');
+    // Check the 'status' key from your Trait's array
+    if ($result['status']) {
+        return redirect()->route('index')->with('success', $result['message']);
     }
+
+    return redirect()->back()->with('error', $result['message']);
+}
 
     public function edit($id)
     {
@@ -58,42 +44,26 @@ class TeacherInfoController extends Controller
         return view('admin.teacher.edit', compact('teacher'));
     }
 
-    public function update(Request $request, $id)
+   public function update(UpdateTeacherRequest $request, $id)
 {
-    $teacher = $this->teacherRepo->find($id);
+    $result = $this->teacherRepo->update($request, $id);
 
-    $data = $request->except('picture');
-
-    if ($request->hasFile('picture')) {
-
-        if ($teacher->picture && file_exists(public_path('teachers/'.$teacher->picture))) {
-            unlink(public_path('teachers/'.$teacher->picture));
-        }
-
-        $imageName = time().'.'.$request->picture->extension();
-        $request->picture->move(public_path('teachers'), $imageName);
-
-        $data['picture'] = $imageName; // ✅ important
+    if ($result['status']) {
+        return redirect()->route('index')->with('success', $result['message']);
     }
 
-    $this->teacherRepo->update($data, $id);
-
-    return redirect()->route('index')
-                     ->with('success','Teacher Updated Successfully');
+    return redirect()->back()->with('error', $result['message']);
 }
 
-
-    public function destroy($id)
+   public function destroy($id)
 {
-    $teacher = $this->teacherRepo->find($id);
+    $result = $this->teacherRepo->delete($id);
 
-    if ($teacher->picture && file_exists(public_path('teachers/'.$teacher->picture))) {
-        unlink(public_path('teachers/'.$teacher->picture));
+    // If result is an array from the Trait
+    if ($result['status']) {
+        return redirect()->back()->with('success', $result['message']);
     }
 
-    $this->teacherRepo->delete($id);
-
-    return redirect()->back()->with('success','Teacher Deleted Successfully');
+    return redirect()->back()->with('error', $result['message']);
 }
-
 }
